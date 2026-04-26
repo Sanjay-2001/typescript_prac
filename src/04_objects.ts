@@ -23,8 +23,8 @@ const user2: User = {
 type User2 = { email?: string }; // not mandatory
 type User3 = { email: string | undefined }; // mandatory and needs any one of the types mentioned
 
-type Count = { [k: string]: number }; // index signature -> {index: number}
-type Count1 = Record<"likes" | "views" | "shares", number>; // <keys, value>
+type Count = { [k: string]: number }; // index signature -> {index: number} , any key string is allowed
+type Count1 = Record<"likes" | "views" | "shares", number>; // <keys, value> , fixed key string is required
 
-const c1: Count = { whatever: 1 };
-const c2: Count1 = { likes: 1, views: 2, shares: 3 };
+const c1: Count = { whatever: 1, hello: 2 }; // any number of key-value pair
+const c2: Count1 = { likes: 1, views: 2, shares: 3 }; // requires all the mentioned keys not less not more
